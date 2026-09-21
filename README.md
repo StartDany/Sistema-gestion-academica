@@ -1,4 +1,5 @@
 # Sistema de Gestión Académica
+Yo soy McLovin
 
 Proyecto desarrollado en Python.
 
