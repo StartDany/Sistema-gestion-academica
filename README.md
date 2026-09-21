@@ -1,5 +1,5 @@
 # Sistema de Gestión Académica
-Yo soy McLovin
+Yo soy McLovin, el unico e inigualable
 
 Proyecto desarrollado en Python.
 
