@@ -1,4 +1,4 @@
-from estudiante import (agregar_estudiante,mostrar_estudiantes,buscar_estudiante,eliminar_estudiante)
+from estudiante import (agregar_estudiante,mostrar_estudiantes,buscar_estudiante,eliminar_estudiante,mejor_estudiante,estudiantes)
 
 from notas import (agregar_nota,calcular_promedio,estado_estudiante)
 
@@ -13,7 +13,8 @@ def menu():
         print("4. Buscar estudiante")
         print("5. Registrar nota")
         print("6. Consultar promedio")
-        print("7. Salir")
+        print("7. Mejor estudiante")
+        print("8. Salir")
         opcion=input("Seleccione que quiere hacer(1-7): ")
         if opcion == "1":   
             codigo=input("Ingrese el codigo del estudiante: ")
@@ -53,16 +54,25 @@ def menu():
             estudiante = buscar_estudiante(codigo_search)  
             if estudiante:
                 promedio = calcular_promedio(estudiante)
+                estado=estado_estudiante(estudiante)
                 if promedio > 0:
-                    print(f"Promedio del estudiante {estudiante['nombre']}: {promedio:.2f}") 
+                    print(f"Promedio del estudiante {estudiante['nombre']}: {promedio:.2f}")
+                    print(f"Estado: {estado}") 
                 else:
                     print("El estudiante no tiene notas registradas.")
             else:
                 print("No se encontro ningun estudiante con ese codigo.")    
         elif opcion == "7":
+            mejor = mejor_estudiante(estudiantes)
+            if mejor:
+                promedio_mejor = calcular_promedio(mejor)
+                print(f"Mejor estudiante: {mejor['nombre']} con promedio: {promedio_mejor:.2f}")
+            else:
+                print("No hay estudiantes registrados.")
+        elif opcion == "8":
             print("Hasta luego")
             break 
         else:
-            print("Opcion no valida, intente de nuevo.")
+            print("Opcion no valida, intente de nuevo.")    
 
 menu()
